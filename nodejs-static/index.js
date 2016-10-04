@@ -14,6 +14,11 @@ if (!config || !config.port) {
   return;
 }
 
+app.use(function (req, res, next) {
+  console.log(Date() + " "  + req.baseUrl + " " + req.url + " " + req.method);
+  next();
+});
+
 // root request 
 if(config.default){
   var pathToFile = path.join(__dirname + config.default);
